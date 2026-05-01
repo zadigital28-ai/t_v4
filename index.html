@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" class="light">
+<html lang="id" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1155,38 +1155,25 @@
     </style>
 
     <style>
-        /* OVERRIDE TEMA */
         
-        :root, html.light, html.dark {
-            --color-bg: #050505 !important;
-            --color-surface: #0f0f0f !important;
-            --color-text: #e0e0e0 !important;
-            --color-text-muted: #777777 !important;
-            --color-accent: #00ffcc !important;
-            --border-color: #222222 !important;
-            --card-shadow: 0 0 10px rgba(0, 255, 204, 0.05) !important;
-        }
+        /* OVERRIDE TEMA */
         body { font-family: 'Consolas', 'Courier New', monospace !important; }
         h1, h2, h3, h4, h5, h6, .font-heading { 
             font-family: 'Consolas', 'Courier New', monospace !important; 
             text-transform: uppercase; 
             letter-spacing: 2px; 
-            color: #fff !important;
         }
         .product-card, .benefit-card, .bonus-item, .testi-card, .btn, .search-bar, .tab-btn { 
             border-radius: 2px !important; 
-            border: 1px solid #333 !important;
-            background-color: #0f0f0f !important;
+            border: 1px solid var(--border-color) !important;
         }
-        .theme-toggle { display: none !important; } /* Sembunyikan tombol tema karena ini dark permanen */
         .btn { text-transform: uppercase; letter-spacing: 1px; font-weight: bold !important; }
         .product-card:hover, .bonus-item:hover, .benefit-card:hover { 
-            box-shadow: 0 0 15px rgba(0, 255, 204, 0.2) !important; 
             border-color: var(--color-accent) !important; 
+            box-shadow: 0 0 20px var(--color-accent) !important; 
         }
-        nav, .cart-drawer, .nav-menu { border-color: #333 !important; }
         .nav-link::after { background-color: var(--color-accent) !important; }
-        
+
     </style>
 </head>
 <body>
@@ -1701,7 +1688,7 @@
         }
 
         function applyTheme() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
+            const savedTheme = localStorage.getItem('theme') || 'dark';
             document.documentElement.className = savedTheme;
             document.getElementById('theme-btn').textContent = savedTheme === 'dark' ? '☀️' : '🌙';
 
